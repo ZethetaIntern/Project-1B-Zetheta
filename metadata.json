@@ -1,0 +1,6 @@
+{
+  "name": "Automated Reconciliation Engine",
+  "description": "Multi-bank automated settlement reconciliation engine supporting MT940 and ISO 20022 CAMT.053, UPI, NEFT, RTGS, and card networks with comprehensive 10-tier exception management and audit store.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

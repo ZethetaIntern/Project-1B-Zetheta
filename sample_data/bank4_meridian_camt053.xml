@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.053.001.08" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <BkToCstmrStmt>
+    <GrpHdr>
+      <MsgId>MERIDIAN-CAMT053-20260904-B4</MsgId>
+      <CreDtTm>2026-09-04T20:15:00Z</CreDtTm>
+      <MsgRcpt>
+        <Nm>MERIDIAN GLOBAL MERCHANT SERVICES</Nm>
+      </MsgRcpt>
+    </GrpHdr>
+    <Stmt>
+      <Id>STMT-2026-09-MER082</Id>
+      <ElctrncSeqNb>492</ElctrncSeqNb>
+      <LglSeqNb>492</LglSeqNb>
+      <CreDtTm>2026-09-04T20:15:00Z</CreDtTm>
+      <FrToDt>
+        <FrDtTm>2026-09-01T00:00:00Z</FrDtTm>
+        <ToDtTm>2026-09-04T23:59:59Z</ToDtTm>
+      </FrToDt>
+      <Acct>
+        <Id>
+          <IBAN>GB33MRDN40001122334455</IBAN>
+          <Othr>
+            <Id>MER-CORP-SETTLE-04</Id>
+            <SchmeNm>
+              <Cd>BBAN</Cd>
+            </SchmeNm>
+          </Othr>
+        </Id>
+        <Ccy>USD</Ccy>
+        <Nm>MERIDIAN E-COMMERCE &amp; CARD NETWORK SETTLEMENT</Nm>
+      </Acct>
+      <!-- Opening Balance -->
+      <Bal>
+        <Tp>
+          <CdOrPrtry>
+            <Cd>OPBD</Cd>
+          </CdOrPrtry>
+        </Tp>
+        <Amt Ccy="USD">120000.00</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Dt>
+          <Dt>2026-09-01</Dt>
+        </Dt>
+      </Bal>
+      <!-- Entry 1: Card Network Settlement with MDR fee deduction for INV-2026-004 -->
+      <!-- Gross: $24,500.00, MDR Fee: $490.00 (2%), Net Settled: $24,010.00 -->
+      <Ntry>
+        <Amt Ccy="USD">24010.00</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Sts>BOOK</Sts>
+        <BookgDt>
+          <Dt>2026-09-02</Dt>
+        </BookgDt>
+        <ValDt>
+          <Dt>2026-09-02</Dt>
+        </ValDt>
+        <AcctSvcrRef>MER-CARD-SETTLE-20260902-VISA</AcctSvcrRef>
+        <BkTxCd>
+          <Domn>
+            <Cd>PMNT</Cd>
+            <Fmly>
+              <Cd>CCRD</Cd>
+              <SubFmlyCd>POSD</SubFmlyCd>
+            </Fmly>
+          </Domn>
+        </BkTxCd>
+        <Chrgs>
+          <TtlChrgsAndTaxAmt Ccy="USD">490.00</TtlChrgsAndTaxAmt>
+          <Rcrd>
+            <Amt Ccy="USD">490.00</Amt>
+            <CdtDbtInd>DBIT</CdtDbtInd>
+            <Tp>
+              <Prtry>
+                <Id>MDR_INTERCHANGE_FEE_2PCT</Id>
+              </Prtry>
+            </Tp>
+          </Rcrd>
+        </Chrgs>
+        <NtryDtls>
+          <Btch>
+            <MsgId>VISA-NET-BATCH-99410</MsgId>
+            <PmtInfId>BATCH-CARD-20260902</PmtInfId>
+            <NbOfTxs>18</NbOfTxs>
+            <TtlAmt Ccy="USD">24500.00</TtlAmt>
+          </Btch>
+          <TxDtls>
+            <Refs>
+              <EndToEndId>CRD-BATCH-INV-2026-004</EndToEndId>
+              <TxId>TX-VISA-NETTLE-99410-004</TxId>
+            </Refs>
+            <AmtDtls>
+              <TxAmt>
+                <Amt Ccy="USD">24500.00</Amt>
+              </TxAmt>
+            </AmtDtls>
+            <RltdPties>
+              <Dbtr>
+                <Nm>VISA MERCHANT ACQUIRING NETWORK</Nm>
+              </Dbtr>
+              <Cdtr>
+                <Nm>ENTERPRISE TREASURY CLIENT</Nm>
+              </Cdtr>
+            </RltdPties>
+            <RmtInf>
+              <Ustrd>VISA NET SETTLEMENT FOR INVOICE INV-2026-004 GROSS 24500.00 MDR NET 24010.00</Ustrd>
+            </RmtInf>
+          </TxDtls>
+        </NtryDtls>
+      </Ntry>
+      <!-- Entry 2: Chargeback dispute on Card network transaction -->
+      <Ntry>
+        <Amt Ccy="USD">1250.00</Amt>
+        <CdtDbtInd>DBIT</CdtDbtInd>
+        <Sts>BOOK</Sts>
+        <BookgDt>
+          <Dt>2026-09-03</Dt>
+        </BookgDt>
+        <ValDt>
+          <Dt>2026-09-03</Dt>
+        </ValDt>
+        <AcctSvcrRef>MER-DISP-CHGBK-20260903-88</AcctSvcrRef>
+        <BkTxCd>
+          <Domn>
+            <Cd>PMNT</Cd>
+            <Fmly>
+              <Cd>CCRD</Cd>
+              <SubFmlyCd>CHGB</SubFmlyCd>
+            </Fmly>
+          </Domn>
+        </BkTxCd>
+        <NtryDtls>
+          <TxDtls>
+            <Refs>
+              <EndToEndId>CHGBK-MC-2026-8812</EndToEndId>
+              <TxId>DISP-2026-0091</TxId>
+            </Refs>
+            <RltdPties>
+              <Dbtr>
+                <Nm>MASTERCARD DISPUTE RESOLUTION</Nm>
+              </Dbtr>
+            </RltdPties>
+            <RmtInf>
+              <Ustrd>CARDHOLDER DISPUTE REVERSAL CHARGEBACK REASON 4837 FRAUDULENT TX</Ustrd>
+            </RmtInf>
+          </TxDtls>
+        </NtryDtls>
+      </Ntry>
+      <!-- Entry 3: Unmatched bank-only wire transfer (Suspicious Velocity / AML Check) -->
+      <Ntry>
+        <Amt Ccy="USD">9990.00</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Sts>BOOK</Sts>
+        <BookgDt>
+          <Dt>2026-09-04</Dt>
+        </BookgDt>
+        <ValDt>
+          <Dt>2026-09-04</Dt>
+        </ValDt>
+        <AcctSvcrRef>MER-WIRE-AML-20260904-77</AcctSvcrRef>
+        <BkTxCd>
+          <Domn>
+            <Cd>PMNT</Cd>
+            <Fmly>
+              <Cd>MCRD</Cd>
+              <SubFmlyCd>SWFT</SubFmlyCd>
+            </Fmly>
+          </Domn>
+        </BkTxCd>
+        <NtryDtls>
+          <TxDtls>
+            <Refs>
+              <EndToEndId>AML-HOLD-UNMATCHED-009</EndToEndId>
+              <TxId>SWIFT-UNKNOWN-9990</TxId>
+            </Refs>
+            <AmtDtls>
+              <TxAmt>
+                <Amt Ccy="USD">9990.00</Amt>
+              </TxAmt>
+            </AmtDtls>
+            <RltdPties>
+              <Dbtr>
+                <Nm>OFFSHORE HOLDINGS CAYMAN LTD</Nm>
+              </Dbtr>
+            </RltdPties>
+            <RmtInf>
+              <Ustrd>UNIDENTIFIED INWARD REMITTANCE JUST UNDER 10K THRESHOLD AML COMPLIANCE REVIEW</Ustrd>
+            </RmtInf>
+          </TxDtls>
+        </NtryDtls>
+      </Ntry>
+      <!-- Closing Balance -->
+      <Bal>
+        <Tp>
+          <CdOrPrtry>
+            <Cd>CLBD</Cd>
+          </CdOrPrtry>
+        </Tp>
+        <Amt Ccy="USD">152750.00</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Dt>
+          <Dt>2026-09-04</Dt>
+        </Dt>
+      </Bal>
+    </Stmt>
+  </BkToCstmrStmt>
+</Document>

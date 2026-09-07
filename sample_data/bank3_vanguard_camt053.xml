@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <BkToCstmrStmt>
+    <GrpHdr>
+      <MsgId>VANGUARD-CAMT053-20260904-001</MsgId>
+      <CreDtTm>2026-09-04T18:30:00+05:30</CreDtTm>
+      <MsgPgntn>
+        <PgNb>1</PgNb>
+        <LastPgInd>true</LastPgInd>
+      </MsgPgntn>
+    </GrpHdr>
+    <Stmt>
+      <Id>STMT-2026-09-VNG001</Id>
+      <ElctrncSeqNb>108</ElctrncSeqNb>
+      <CreDtTm>2026-09-04T18:30:00+05:30</CreDtTm>
+      <FrToDt>
+        <FrDtTm>2026-09-01T00:00:00+05:30</FrDtTm>
+        <ToDtTm>2026-09-04T23:59:59+05:30</ToDtTm>
+      </FrToDt>
+      <Acct>
+        <Id>
+          <IBAN>IN64VANG000000008888999900</IBAN>
+        </Id>
+        <Tp>
+          <Prtry>CORPORATE_TREASURY_RTGS</Prtry>
+        </Tp>
+        <Ccy>INR</Ccy>
+        <Nm>VANGUARD SETTLEMENT &amp; CASH MGMT CORP</Nm>
+      </Acct>
+      <Bal>
+        <Tp>
+          <CdOrPrtry>
+            <Cd>OPBD</Cd>
+          </CdOrPrtry>
+        </Tp>
+        <Amt Ccy="INR">5000000.00</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Dt>
+          <Dt>2026-09-01</Dt>
+        </Dt>
+      </Bal>
+      <!-- Entry 1: High Value RTGS settlement for INV-2026-003 -->
+      <Ntry>
+        <Amt Ccy="INR">2500000.00</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Sts>BOOK</Sts>
+        <BookgDt>
+          <Dt>2026-09-02</Dt>
+        </BookgDt>
+        <ValDt>
+          <Dt>2026-09-02</Dt>
+        </ValDt>
+        <AcctSvcrRef>VNG-RTGS-20260902-8819</AcctSvcrRef>
+        <BkTxCd>
+          <Domn>
+            <Cd>PMNT</Cd>
+            <Fmly>
+              <Cd>RCDT</Cd>
+              <SubFmlyCd>RTGS</SubFmlyCd>
+            </Fmly>
+          </Domn>
+        </BkTxCd>
+        <NtryDtls>
+          <TxDtls>
+            <Refs>
+              <EndToEndId>RTGS-VNG-20260902-003</EndToEndId>
+              <TxId>UTR-VANG-20260902-RTGS003</TxId>
+            </Refs>
+            <AmtDtls>
+              <TxAmt>
+                <Amt Ccy="INR">2500000.00</Amt>
+              </TxAmt>
+            </AmtDtls>
+            <RltdPties>
+              <Dbtr>
+                <Nm>GAMMA INFRASTRUCTURE HOLDINGS</Nm>
+              </Dbtr>
+              <Cdtr>
+                <Nm>ENTERPRISE TREASURY CLIENT</Nm>
+              </Cdtr>
+            </RltdPties>
+            <RmtInf>
+              <Ustrd>RTGS SETTLEMENT FOR INVOICE INV-2026-003 CAPITAL EQUIPMENT PURCHASE</Ustrd>
+            </RmtInf>
+          </TxDtls>
+        </NtryDtls>
+      </Ntry>
+      <!-- Entry 2: Settlement Lag / Timing Difference for RCP-2026-004 -->
+      <Ntry>
+        <Amt Ccy="INR">380000.00</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Sts>BOOK</Sts>
+        <BookgDt>
+          <Dt>2026-09-04</Dt>
+        </BookgDt>
+        <ValDt>
+          <Dt>2026-09-04</Dt>
+        </ValDt>
+        <AcctSvcrRef>VNG-RTGS-20260904-7712</AcctSvcrRef>
+        <BkTxCd>
+          <Domn>
+            <Cd>PMNT</Cd>
+            <Fmly>
+              <Cd>RCDT</Cd>
+              <SubFmlyCd>RTGS</SubFmlyCd>
+            </Fmly>
+          </Domn>
+        </BkTxCd>
+        <NtryDtls>
+          <TxDtls>
+            <Refs>
+              <EndToEndId>RTGS-VNG-20260904-004</EndToEndId>
+              <TxId>UTR-VANG-20260904-RTGS004</TxId>
+            </Refs>
+            <AmtDtls>
+              <TxAmt>
+                <Amt Ccy="INR">380000.00</Amt>
+              </TxAmt>
+            </AmtDtls>
+            <RltdPties>
+              <Dbtr>
+                <Nm>SIGMA MARITIME VENTURES</Nm>
+              </Dbtr>
+            </RltdPties>
+            <RmtInf>
+              <Ustrd>RECEIPT RCP-2026-004 SETTLED T+1 POST CUTOFF TIME 18:05</Ustrd>
+            </RmtInf>
+          </TxDtls>
+        </NtryDtls>
+      </Ntry>
+      <!-- Entry 3: RTGS Network Clearing Fee -->
+      <Ntry>
+        <Amt Ccy="INR">50.00</Amt>
+        <CdtDbtInd>DBIT</CdtDbtInd>
+        <Sts>BOOK</Sts>
+        <BookgDt>
+          <Dt>2026-09-04</Dt>
+        </BookgDt>
+        <ValDt>
+          <Dt>2026-09-04</Dt>
+        </ValDt>
+        <AcctSvcrRef>VNG-FEE-20260904-01</AcctSvcrRef>
+        <BkTxCd>
+          <Domn>
+            <Cd>CHRG</Cd>
+            <Fmly>
+              <Cd>FEE</Cd>
+              <SubFmlyCd>COMM</SubFmlyCd>
+            </Fmly>
+          </Domn>
+        </BkTxCd>
+        <NtryDtls>
+          <TxDtls>
+            <RmtInf>
+              <Ustrd>CENTRAL BANK RTGS CLEARING PROCESSING LEVY</Ustrd>
+            </RmtInf>
+          </TxDtls>
+        </NtryDtls>
+      </Ntry>
+      <Bal>
+        <Tp>
+          <CdOrPrtry>
+            <Cd>CLBD</Cd>
+          </CdOrPrtry>
+        </Tp>
+        <Amt Ccy="INR">7879950.00</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Dt>
+          <Dt>2026-09-04</Dt>
+        </Dt>
+      </Bal>
+    </Stmt>
+  </BkToCstmrStmt>
+</Document>
